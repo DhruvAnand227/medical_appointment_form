@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .image {
+            height: 100vh;
+            background-image: url('https://wallpapers.com/images/hd/blue-heartbeat-rate-hd-medical-octyhn204z1cas21.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .new-form {
+            width: 600px;
+            height: 650px;
+            background-color: rgba(206, 205, 205, 0.281);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .new-form h1 {
+            color: rgba(0, 0, 0, 0.575);
+            text-align: center;
+            text-decoration: overline underline;
+            margin-bottom: 25px;
+        }
+
+        .fill-form {
+            width: 90%;
+            height: 90%;
+            text-align: center;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .fullfill {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .m-form {
+            display: flex;
+            padding: 10px;
+            gap: 8px 16px;
+            margin: 6px;
+        }
+
+        .fill-form label {
+            color: rgba(0, 0, 0, 0.575);
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        .fill-form input {
+            background-color: rgba(206, 205, 205, 0.281);
+            border: none;
+            width: 50%;
+            color: rgba(0, 0, 0, 0.575);
+        }
+
+        select {
+            background-color: rgba(206, 205, 205, 0.281);
+            width: 20%;
+            color: rgba(0, 0, 0, 0.575);
+            cursor: pointer;
+        }
+
+        #btn {
+            width: 200px;
+            background-color: rgb(156, 46, 2);
+            color: white;
+            text-align: center;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        #btn-2 {
+            margin: 10px;
+            width: 250px;
+            padding: 10px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            background: linear-gradient(to bottom right, rgb(228, 8, 154) 40%, rgb(228, 224, 4) 60%);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="image">
+        <div class="new-form">
+            <h1>WELCOME TO OUR CLINIC</h1>
+
+            <div class="fill-form">
+                <form action="new_web.html" method="post">
+                    <div class="fullfill">
+                        <div class="m-form">
+                            <label for="name">NAME: </label>
+                            <input type="text" id="name" name="username" placeholder="Enter you name..." maxlength="25"
+                                required>
+                        </div>
+
+                        <div class="m-form">
+                            <label for="age">AGE: </label>
+                            <input type="number" id="age" name="age" placeholder="Enter your age..." minlength="1"
+                                maxlength="3" required>
+                        </div>
+
+                        <div class="m-form">
+                            <label for="sex">SEX:</label>
+                            <select name="sex" id="sex">
+                                <option value="male">MALE</option>
+                                <option value="female">FEMALE</option>
+                                <option value="others">OTHERS</option>
+                            </select>
+                        </div>
+
+                        <div class="m-form">
+                            <label for="phone-number">PHONE NUMBER: </label>
+                            <input type="number" id="phone" name="phone" placeholder="Enter your Phone No...." required>
+                        </div>
+
+                        <div class="m-form">
+                            <label for="email">EMAIL ADDRESS: </label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email..." required>
+                        </div>
+
+                        <div class="m-form">
+                            <label for="slot-time">SLOT TIMING: </label>
+                            <select name="slot-time" id="slot-time">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+
+                            <select name="amORpm" id="amORpm">
+                                <option value="pm">PM</option>
+                                <option value="am">AM</option>
+                            </select>
+                        </div>
+
+                        <div class="m-form">
+                            <label for="fees">CONSULTATION FEES:</label>
+                            <div id="btn">PAY</div>
+                        </div>
+
+                    </div>
+
+                    <div class="submit">
+                        <button id="btn-2">BOOK APPOINTMENT</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let submit = document.getElementById("btn-2");
+        let name = document.getElementById("name");
+        let age = document.getElementById("age");
+        let phoneNo = document.getElementById("phone");
+        let emailID = document.getElementById("email");
+        let fees = document.getElementById("btn");
+
+        fees.addEventListener("click", () => {
+            async function feePaid() {
+                if (fees.innerHTML == "PAY") {
+                    await new Promise((resolve) => {
+                        setTimeout(() => {
+                            fees.innerHTML = "PROCESSING...";
+                            resolve();
+                        }, 700);
+                    })
+
+
+                    await new Promise((resolve) => {
+                        setTimeout(() => {
+                            fees.innerHTML = "PAID SUCCESSFULLY";
+                            fees.style.backgroundColor = "darkgreen";
+                            resolve();
+                        }, 4000);
+                    })
+                }
+            }
+
+            feePaid();
+        })
+
+        submit.addEventListener("click", () => {
+            if (name.value === "") {
+                alert("Please fill your name...");
+            }
+            if (age.value === "") {
+                alert("Please fill your age...");
+            }
+            if (!emailID.value.endsWith("@gmail.com")) {
+                emailID.value = "";
+                alert("Fill your mail ID propely...");
+            }
+            if (phoneNo.value === "" || phoneNo.value.length < 10) {
+                phoneNo.value = "";
+                alert("Please enter a valid phone number...");
+            }
+            if (fees.innerHTML == "PAY") {
+                alert("Pay the fee first");
+                event.preventDefault();
+            }
+
+        })
+    </script>
+</body>
+
+</html>

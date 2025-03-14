@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sumbitted Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .box {
+            width: 35%;
+            height: 30%;
+            background-color: rgb(191, 243, 5);
+            color: black;
+            position: relative;
+        }
+
+        .box h1 {
+            text-align: center;
+            margin: 30px;
+        }
+
+        .box h3 {
+            text-align: center;
+            margin: 10px;
+            
+        }
+
+        #btn {
+            padding: 10px;
+            margin: 12px;
+            background: linear-gradient(rgb(212, 11, 128), rgb(218, 101, 5), rgb(27, 158, 233));
+            font-size: 15px;
+            font-weight: 600;
+            text-align: center;
+            position: absolute;
+            right: 120px;
+            bottom: 50px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <h1>Your Appointed Has Been Booked Successfully!!</h1>
+            <h3>Dr. Ajay Singh Koranga has been consulting you.</h3>
+            <button id="btn">GO BACK <--</button>
+        </div>
+    </div>
+
+    <script>
+        let goBack = document.getElementById("btn");
+        goBack.addEventListener("click", ()=>{
+            window.history.back();
+        })
+    </script>
+</body>
+</html>
